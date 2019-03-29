@@ -15,4 +15,5 @@ public class SysPermissionServicImpl implements ISysPermissionService {
     public List<SysPermission> findUrlByUserId(String userid) {
         return sysPermissionMapper.findUrlByUserId(userid);
     }
+
 }

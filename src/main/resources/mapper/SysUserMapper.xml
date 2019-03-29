@@ -4,4 +4,10 @@
  <select id="getByNameAndPassword" resultType="com.example.demo.entity.SysUser">
    select  * from sys_user where usercode=#{usercode}  and password=#{username}
  </select>
+    <select id="findByUserid" resultType="com.example.demo.entity.SysUser">
+        select  * from sys_user where id=#{userid}
+    </select>
+    <select id="findByUsercode" resultType="com.example.demo.entity.SysUser">
+select  * from sys_user where usercode=#{usercode}
+    </select>
 </mapper>
