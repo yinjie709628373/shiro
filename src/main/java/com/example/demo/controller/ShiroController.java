@@ -10,9 +10,7 @@ import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.authc.IncorrectCredentialsException;
-import org.apache.shiro.authc.UnknownAccountException;
-import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.authc.*;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -65,10 +63,23 @@ public class ShiroController {
             //调用login
             subject.login(token);
         }catch (UnknownAccountException e){
+            //未知账户  账号错误
             //IncorrectCredentialsException 也可以
             // e.printStackTrace();
             //跳转页面
             return "failed";
+        }catch (IncorrectCredentialsException   e){
+            //密码错误
+            // e.printStackTrace();
+            //跳转页面
+        }catch (LockedAccountException e){
+            //账户被锁定
+            // e.printStackTrace();
+            //跳转页面
+        }catch (AuthenticationException e){
+            //账户验证失败
+            // e.printStackTrace();
+            //跳转页面
         }
         //跳转页面
         return "success";
