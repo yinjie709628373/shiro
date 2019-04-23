@@ -32,7 +32,7 @@ public class SysUserServiceImpl implements ISysUserService {
     public SysUser findByUserid(String userid) {
         try {
             SysUser user = sysUserMapper.findByUserid(userid);
-            if (null == user) {
+            if (null != user) {
                 user.setPermissions(sysPermissionService.findUrlByUserId(userid));
                 user.setRoles(sysRoleService.findByUserId(userid));
                 return user;
