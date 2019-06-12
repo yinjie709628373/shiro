@@ -67,19 +67,22 @@ public class ShiroController {
             //IncorrectCredentialsException 也可以
             // e.printStackTrace();
             //跳转页面
-            return "failed";
+            return " acc mistake";
         }catch (IncorrectCredentialsException   e){
             //密码错误
             // e.printStackTrace();
             //跳转页面
+            return " p mistake";
         }catch (LockedAccountException e){
             //账户被锁定
             // e.printStackTrace();
             //跳转页面
+            return " lock";
         }catch (AuthenticationException e){
             //账户验证失败
             // e.printStackTrace();
             //跳转页面
+            return " 账户验证失败";
         }
         //跳转页面
         return "success";
